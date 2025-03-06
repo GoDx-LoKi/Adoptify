@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Adoptify - Home</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Animate.css for animations -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <style>
+    /* Homepage hero section with background image */
+    .hero {
+      background: url("{% static 'images/pet-adoption-bg.jpg' %}") no-repeat center center;
+      background-size: cover;
+      height: 80vh;
+      position: relative;
+      color: #fff;
+    }
+    /* Overlay for darkening the background image */
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+  </style>
+</head>
+<body>
+  <!-- Include the navbar from base.html or re-create one here if needed -->
+  {% include 'navbar.html' %}
+
+  <!-- Hero Section -->
+  <section class="hero d-flex align-items-center">
+    <div class="container text-center hero-content">
+      <h1 class="display-4 animate__animated animate__fadeInDown">Find Your New Best Friend</h1>
+      <p class="lead animate__animated animate__fadeInUp">Adopt a pet and give them a loving home.</p>
+      <a href="{% url 'pets' %}" class="btn btn-primary btn-lg animate__animated animate__zoomIn">View Pets</a>
+
+    </div>
+  </section>
+
+  <!-- Additional sections can be added here -->
+  <section class="py-5">
+    <div class="container">
+      <h2 class="mb-4 text-center">Why Adopt?</h2>
+      <p class="lead text-center">Every adoption saves a life and brings love to your home. Explore our adoptable pets and start your journey today!</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-light text-center py-4">
+    <p>&copy; Adoptify {% now "Y" %}</p>
+  </footer>
+
+  <!-- Bootstrap 5 JS Bundle (with Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Optionally include custom JS -->
+  <script src="{% static 'js/custom.js' %}"></script>
+</body>
+</html>

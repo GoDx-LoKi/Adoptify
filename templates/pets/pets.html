@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+  <!-- Modern Sentence-Style Search Form -->
+  <form method="GET" action="" class="search-sentence my-4">
+    <div class="search-container">
+      <span class="search-text">I want to adopt a</span>
+      <select name="pet_type" class="sentence-input" required>
+        <option value="">Select Type</option>
+        <option value="Dog" {% if values.pet_type == 'Dog' %}selected{% endif %}>Dog</option>
+        <option value="Cat" {% if values.pet_type == 'Cat' %}selected{% endif %}>Cat</option>
+        <option value="Rabbit" {% if values.pet_type == 'Rabbit' %}selected{% endif %}>Rabbit</option>
+        <option value="Bird" {% if values.pet_type == 'Bird' %}selected{% endif %}>Bird</option>
+        <option value="Other" {% if values.pet_type == 'Other' %}selected{% endif %}>Other</option>
+      </select>
+      <span class="search-text">which will be</span>
+      <select name="gender" class="sentence-input">
+        <option value="">Select Gender</option>
+        <option value="Male" {% if values.gender == 'Male' %}selected{% endif %}>Male</option>
+        <option value="Female" {% if values.gender == 'Female' %}selected{% endif %}>Female</option>
+      </select>
+      <span class="search-text">with age</span>
+      <input type="number" name="age" class="sentence-input" placeholder="Age" value="{{ values.age|default_if_none:'' }}">
+      <span class="search-text">which is</span>
+      <select name="size" class="sentence-input">
+        <option value="">Select Size</option>
+        <option value="Small" {% if values.size == 'Small' %}selected{% endif %}>Small</option>
+        <option value="Medium" {% if values.size == 'Medium' %}selected{% endif %}>Medium</option>
+        <option value="Large" {% if values.size == 'Large' %}selected{% endif %}>Large</option>
+      </select>
+      <span class="search-text">in size and located in</span>
+      <input type="text" name="location" class="sentence-input" placeholder="Location" value="{{ values.location|default_if_none:'' }}">
+      <button type="submit" class="sentence-btn btn btn-primary">Search</button>
+    </div>
+  </form>
+
+  <!-- Pet Listing -->
+  <div class="row">
+    {% for pet in pets %}
+      <div class="col-md-4 mb-4">
+        <div class="card shadow-sm">
+          <img class="card-img-top" src="{{ pet.photo_main.url }}" alt="{{ pet.name }}" style="object-fit: cover;">
+          <div class="card-body">
+            <h5 class="card-title">{{ pet.name }}</h5>
+            <p class="card-text"><strong>Type:</strong> {{ pet.pet_type }}</p>
+            <p class="card-text"><strong>Gender:</strong> {{ pet.gender }}</p>
+            <p class="card-text"><strong>Age:</strong> {{ pet.age }} years</p>
+            <a href="{% url 'pet_detail' pet.id %}" class="btn btn-outline-primary btn-sm">View Details</a>
+          </div>
+        </div>
+      </div>
+    {% empty %}
+      <div class="col-md-12">
+        <h4 class="text-center">No pets found matching your criteria.</h4>
+      </div>
+    {% endfor %}
+  </div>
+<style>
+  /* Make all cards the same height */
+  .card {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+  }
+
+  /* Fixed height for images to keep everything aligned */
+  .card-img-top {
+      width: 100%;
+      height: 250px; /* Set a fixed height */
+      object-fit: cover; /* Ensures images fit properly */
+  }
+
+  /* Make card body take up remaining space */
+  .card-body {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+  }
+</style>
+
+</div>
+{% endblock %}

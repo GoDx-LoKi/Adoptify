@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+  <h2>Inquiry for {{ pet.name }}</h2>
+  <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Submit Inquiry</button>
+  </form>
+  <a href="{% url 'pet_detail' pet.id %}" class="btn btn-secondary mt-3">Back to Pet Details</a>
+</div>
+{% endblock %}
