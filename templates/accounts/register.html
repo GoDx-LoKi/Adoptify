@@ -1,35 +1,116 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="form-container">
-  <h2>Register</h2>
-  <form method="POST" action="{% url 'register' %}">
-    {% csrf_token %}
-    <div class="mb-3">
-      <label for="first_name" class="form-label">First Name</label>
-      <input type="text" name="first_name" id="first_name" class="form-control" required>
-    </div>
-    <div class="mb-3">
-      <label for="last_name" class="form-label">Last Name</label>
-      <input type="text" name="last_name" id="last_name" class="form-control" required>
-    </div>
-    <div class="mb-3">
-      <label for="username" class="form-label">Username</label>
-      <input type="text" name="username" id="username" class="form-control" required>
-    </div>
-    <div class="mb-3">
-      <label for="email" class="form-label">Email</label>
-      <input type="email" name="email" id="email" class="form-control" required>
-    </div>
-    <div class="mb-3">
-      <label for="password" class="form-label">Password</label>
-      <input type="password" name="password" id="password" class="form-control" required>
-    </div>
-    <div class="mb-3">
-      <label for="password2" class="form-label">Confirm Password</label>
-      <input type="password" name="password2" id="password2" class="form-control" required>
-    </div>
-    <button type="submit" class="btn btn-primary w-100">Register</button>
-  </form>
-  <a href="{% url 'login' %}" class="form-link">Already have an account? Login</a>
+    <h2 class="text-center">Create an Account</h2>
+    <form method="POST" action="{% url 'register' %}">
+        {% csrf_token %}
+        
+        <div class="input-group">
+            <label for="first_name">First Name</label>
+            <input type="text" name="first_name" id="first_name" required>
+        </div>
+
+        <div class="input-group">
+            <label for="last_name">Last Name</label>
+            <input type="text" name="last_name" id="last_name" required>
+        </div>
+
+        <div class="input-group">
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" required>
+        </div>
+
+        <div class="input-group">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" required>
+        </div>
+
+        <div class="input-group">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" required>
+        </div>
+
+        <div class="input-group">
+            <label for="password2">Confirm Password</label>
+            <input type="password" name="password2" id="password2" required>
+        </div>
+
+        <button type="submit" class="btn">Register</button>
+    </form>
+    
+    <p class="form-link text-center">
+        Already have an account? <a href="{% url 'login' %}">Login</a>
+    </p>
 </div>
+<style>
+  .form-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #181818;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #bbb;
+}
+
+.input-group input {
+    padding: 10px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background: #222;
+    color: #fff;
+    outline: none;
+}
+
+.input-group input:focus {
+    border-color: #007bff;
+}
+
+.btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: #ff4500;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background: #ff4500;
+}
+
+.form-link {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.form-link a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.form-link a:hover {
+    text-decoration: underline;
+}
+
+</style>
 {% endblock %}

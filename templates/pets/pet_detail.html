@@ -1,132 +1,100 @@
 {% extends 'base.html' %}
+
 {% block content %}
-  <div class="container">
+<div class="container">
     <h1 class="text-center">{{ pet.name }}</h1>
 
-    <!-- Gallery Container -->
-    <div class="gallery-container">
-        <!-- Main Image (Top) -->
-        <div class="main-image-container">
-            {% if pet.photo_main %}
-                <img id="mainImage" src="{{ pet.photo_main.url }}" alt="Main Photo" class="main-image">
-            {% endif %}
-        </div>
-
-        <!-- Thumbnail Images (Bottom) -->
-        <div class="thumbnail-container">
-            {% if pet.photo_1 %}
-                <img src="{{ pet.photo_1.url }}" alt="Photo 1" class="thumbnail" onclick="changeMainImage(this)">
-            {% endif %}
-            {% if pet.photo_2 %}
-                <img src="{{ pet.photo_2.url }}" alt="Photo 2" class="thumbnail" onclick="changeMainImage(this)">
-            {% endif %}
-            {% if pet.photo_3 %}
-                <img src="{{ pet.photo_3.url }}" alt="Photo 3" class="thumbnail" onclick="changeMainImage(this)">
-            {% endif %}
-            {% if pet.photo_4 %}
-                <img src="{{ pet.photo_4.url }}" alt="Photo 4" class="thumbnail" onclick="changeMainImage(this)">
-            {% endif %}
-            {% if pet.photo_5 %}
-                <img src="{{ pet.photo_5.url }}" alt="Photo 5" class="thumbnail" onclick="changeMainImage(this)">
-            {% endif %}
-            {% if pet.photo_6 %}
-                <img src="{{ pet.photo_6.url }}" alt="Photo 6" class="thumbnail" onclick="changeMainImage(this)">
-            {% endif %}
-            {% if pet.photo_7 %}
-                <img src="{{ pet.photo_7.url }}" alt="Photo 7" class="thumbnail" onclick="changeMainImage(this)">
-            {% endif %}
-            {% if pet.photo_8 %}
-                <img src="{{ pet.photo_8.url }}" alt="Photo 8" class="thumbnail" onclick="changeMainImage(this)">
-            {% endif %}
-        </div>
+    <!-- Main Image Display -->
+    <div class="main-image-container text-center">
+        <img id="mainImage" src="{{ pet.photo_main.url }}" alt="Main Image" class="main-image">
     </div>
 
-    <!-- JavaScript for Image Swapping -->
-    <script>
-      function changeMainImage(thumbnail) {
-          document.getElementById('mainImage').src = thumbnail.src;
-      }
-    </script>
+    <!-- Thumbnail Gallery Below Main Image -->
+    <div class="pet-gallery d-flex flex-wrap justify-content-center">
+        {% if pet.photo_main %}  
+            <img src="{{ pet.photo_main.url }}" alt="Main Photo" class="pet-thumbnail" onclick="changeMainImage(this)">
+        {% endif %}
+        {% if pet.photo_1 %}  
+            <img src="{{ pet.photo_1.url }}" alt="Photo 1" class="pet-thumbnail" onclick="changeMainImage(this)">
+        {% endif %}
+        {% if pet.photo_2 %}  
+            <img src="{{ pet.photo_2.url }}" alt="Photo 2" class="pet-thumbnail" onclick="changeMainImage(this)">
+        {% endif %}
+        {% if pet.photo_3 %}  
+            <img src="{{ pet.photo_3.url }}" alt="Photo 3" class="pet-thumbnail" onclick="changeMainImage(this)">
+        {% endif %}
+        {% if pet.photo_4 %}  
+            <img src="{{ pet.photo_4.url }}" alt="Photo 4" class="pet-thumbnail" onclick="changeMainImage(this)">
+        {% endif %}
+        {% if pet.photo_5 %}  
+            <img src="{{ pet.photo_5.url }}" alt="Photo 5" class="pet-thumbnail" onclick="changeMainImage(this)">
+        {% endif %}
+        {% if pet.photo_6 %}  
+            <img src="{{ pet.photo_6.url }}" alt="Photo 6" class="pet-thumbnail" onclick="changeMainImage(this)">
+        {% endif %}
+        {% if pet.photo_7 %}  
+            <img src="{{ pet.photo_7.url }}" alt="Photo 7" class="pet-thumbnail" onclick="changeMainImage(this)">
+        {% endif %}
+        {% if pet.photo_8 %}  
+            <img src="{{ pet.photo_8.url }}" alt="Photo 8" class="pet-thumbnail" onclick="changeMainImage(this)">
+        {% endif %}
+    </div>
 
-    <!-- Styles -->
     <style>
-      .gallery-container {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 15px;
-      }
-
-      /* Main Image */
-      .main-image-container {
-          width: 100%;
-          max-width: 500px;
-          text-align: center;
-      }
-
-      .main-image {
-          width: 100%;
-          max-width: 500px;
-          height: auto;
-          border-radius: 10px;
-          transition: opacity 0.3s ease-in-out;
-      }
-
-      /* Thumbnails (Below Main Image) */
-      .thumbnail-container {
-          display: flex;
-          justify-content: center;
-          gap: 10px;
-          max-width: 100%;
-          overflow-x: auto;
-          padding-bottom: 10px;
-      }
-
-      .thumbnail {
-          width: 80px;
-          height: 80px;
-          object-fit: cover;
-          border-radius: 8px;
-          cursor: pointer;
-          transition: transform 0.3s ease-in-out;
-      }
-
-      .thumbnail:hover {
-          transform: scale(1.1);
-      }
-
-      /* Scrollbar Style */
-      .thumbnail-container::-webkit-scrollbar {
-          height: 6px;
-      }
-      .thumbnail-container::-webkit-scrollbar-thumb {
-          background: #888;
-          border-radius: 4px;
-      }
-      .thumbnail-container::-webkit-scrollbar-track {
-          background: #f1f1f1;
-      }
-
-      /* Responsive */
-      @media (max-width: 768px) {
-          .thumbnail {
-              width: 60px;
-              height: 60px;
-          }
-      }
+        .main-image-container {
+            margin-bottom: 20px;
+        }
+        .main-image {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 8px;
+        }
+        .pet-gallery {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .pet-thumbnail {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+        }
+        .pet-thumbnail:hover {
+            transform: scale(1.1);
+        }
     </style>
 
-    <!-- Other pet details -->
-    <ul class="list-group mt-3">
-      <li class="list-group-item"><strong>Type:</strong> {{ pet.pet_type }}</li>
-      <li class="list-group-item"><strong>Gender:</strong> {{ pet.gender }}</li>
-      <li class="list-group-item"><strong>Age:</strong> {{ pet.age }} years</li>
-      <li class="list-group-item"><strong>Size:</strong> {{ pet.size }}</li>
-      <li class="list-group-item"><strong>Location:</strong> {{ pet.location }}</li>
-      <li class="list-group-item"><strong>Vaccinated:</strong> {% if pet.vaccinated %}Yes{% else %}No{% endif %}</li>
-      <li class="list-group-item"><strong>Description:</strong> {{ pet.description }}</li>
-    </ul>
-    <a href="/" class="btn btn-secondary mt-3">Back to Pets</a>
-    <a href="{% url 'add_inquiry' pet.id %}" class="btn btn-success mt-3">Inquire Now</a>
+    <!-- JavaScript to Update Main Image -->
+    <script>
+        function changeMainImage(thumbnail) {
+            var mainImage = document.getElementById('mainImage');
+            mainImage.src = thumbnail.src;
+
+            // Optional: Highlight the selected thumbnail
+            var thumbnails = document.querySelectorAll('.pet-thumbnail');
+            thumbnails.forEach(img => img.style.border = "none"); 
+            thumbnail.style.border = "2px solid #007bff";
+        }
+    </script>
+
+<ul class="list-group mt-3">
+    <li class="list-group-item bg-dark text-light"><strong>Type:</strong> {{ pet.pet_type }}</li>
+    <li class="list-group-item bg-dark text-light"><strong>Gender:</strong> {{ pet.gender }}</li>
+    <li class="list-group-item bg-dark text-light"><strong>Age:</strong> {{ pet.age }} years</li>
+    <li class="list-group-item bg-dark text-light"><strong>Size:</strong> {{ pet.size }}</li>
+    <li class="list-group-item bg-dark text-light"><strong>State:</strong> {{ pet.state }}</li>
+    <li class="list-group-item bg-dark text-light"><strong>Vaccinated:</strong> {% if pet.vaccinated %}Yes{% else %}No{% endif %}</li>
+    <li class="list-group-item bg-dark text-light"><strong>Description:</strong> {{ pet.description }}</li>
+  </ul>
+
+  <!-- Buttons -->
+  <div class="text-center mt-4">
+      <a href="{% url 'pets' %}" class="btn btn-outline-light">Back to Pets</a>
+      <a href="{% url 'add_inquiry' pet.id %}" class="btn btn-success">Inquire Now</a>
   </div>
 {% endblock %}

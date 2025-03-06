@@ -1,7 +1,86 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
-<div class="container">
-  <h2 class="animate__animated animate__fadeInDown">Donation</h2>
-  <p class="animate__animated animate__fadeInUp">Your donation helps us connect more pets with loving homes.</p>
+<div class="container text-center text-light">
+    <h2>❤️ Support Our Mission ❤️</h2>
+    <p>Your donation helps us rescue and care for abandoned pets. Choose a payment method below.</p>
+
+    <!-- Donation Options -->
+    <div class="row mt-5">
+        <!-- UPI Payment -->
+        <div class="col-md-4">
+            <div class="card donation-card">
+                <div class="card-body">
+                    <h5 class="card-title">Donate via UPI</h5>
+                    <img src="{% static 'images/upi-qr.png' %}" alt="UPI QR Code" class="payment-qr">
+                    <p class="mt-2">UPI ID: <b>adoptify@upi</b></p>
+                    <button class="btn copy-btn" onclick="copyToClipboard('adoptify@upi')">Copy UPI ID</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Crypto Payment -->
+        <div class="col-md-4">
+            <div class="card donation-card">
+                <div class="card-body">
+                    <h5 class="card-title">Donate with Crypto</h5>
+                    <img src="{% static 'images/crypto-qr.png' %}" alt="Crypto QR Code" class="payment-qr">
+                    <p class="mt-2">Wallet: <b>0xA1b2C3D4E5F67890</b></p>
+                    <button class="btn copy-btn" onclick="copyToClipboard('0xA1b2C3D4E5F67890')">Copy Wallet</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bank Transfer -->
+        <div class="col-md-4">
+            <div class="card donation-card">
+                <div class="card-body">
+                    <h5 class="card-title">Bank Transfer</h5>
+                    <p>Account Name: <b>Adoptify Rescue</b></p>
+                    <p>Account No: <b>1234567890</b></p>
+                    <p>IFSC Code: <b>ABC1234567</b></p>
+                    <button class="btn copy-btn" onclick="copyToClipboard('1234567890')">Copy Account</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+<!-- Minimalist Styles -->
+<style>
+    .donation-card {
+        background: #222;
+        color: #fff;
+        border: 1px solid #444;
+        border-radius: 8px;
+        padding: 20px;
+        text-align: center;
+    }
+    .payment-qr {
+        width: 120px;
+        height: 120px;
+        border-radius: 5px;
+        margin-top: 10px;
+    }
+    .copy-btn {
+        margin-top: 10px;
+        background-color: #ff9800;
+        border: none;
+        color: #fff;
+        padding: 8px 12px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .copy-btn:hover {
+        background-color: #ffb74d;
+    }
+</style>
+
+<!-- JavaScript to Copy Text -->
+<script>
+    function copyToClipboard(text) {
+        navigator.clipboard.writeText(text);
+        alert("Copied: " + text);
+    }
+</script>
 {% endblock %}
