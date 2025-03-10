@@ -15,9 +15,8 @@ import os
 import dj_database_url
 
 DATABASES = {
-    'default': dj_database_url.config(default=os.getenv('postgresql://adoptify_db_user:BiCLkjuB6PCSnN2dw7p698EDQt5yxMn2@dpg-cv78oui3esus73ec0pug-a/adoptify_db'))
+    'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
 }
-
 
 
 
