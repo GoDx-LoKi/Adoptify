@@ -34,8 +34,8 @@ SECRET_KEY = 'django-insecure-7mc(za@_olsymbd5cr76&2$rndq_i+475thv7=v4!2!xtt#es3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://adoptify-i2rs.onrender.com']
-CSRF_TRUSTED_ORIGINS = ['https://adoptify-i2rs.onrender.com']
+ALLOWED_HOSTS = ['https://adoptify-databaseurl.up.railway.app/']
+CSRF_TRUSTED_ORIGINS = ['https://adoptify-databaseurl.up.railway.app/']
 # Application definition
 
 INSTALLED_APPS = [
