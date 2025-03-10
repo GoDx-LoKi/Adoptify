@@ -97,17 +97,6 @@ WSGI_APPLICATION = 'adoptify_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'adoptify',           # your PostgreSQL database name
-        'USER': 'postgres',           # your PostgreSQL username
-        'PASSWORD': 'root',           # your PostgreSQL password
-        'HOST': 'localhost',          # or the relevant host if different
-        'PORT': '5432',               # default PostgreSQL port
-    }
-}
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
