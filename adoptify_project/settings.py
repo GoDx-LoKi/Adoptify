@@ -15,7 +15,7 @@ import os
 import dj_database_url
 
 DATABASES = {
-    'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
+    'default': dj_database_url.config(default=os.getenv('postgresql://adoptify_db_user:BiCLkjuB6PCSnN2dw7p698EDQt5yxMn2@dpg-cv78oui3esus73ec0pug-a/adoptify_db'))
 }
 
 
@@ -35,9 +35,8 @@ SECRET_KEY = 'django-insecure-7mc(za@_olsymbd5cr76&2$rndq_i+475thv7=v4!2!xtt#es3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
-
+ALLOWED_HOSTS = ['https://adoptify-databaseurl.up.railway.app/']
+CSRF_TRUSTED_ORIGINS = ['https://adoptify-databaseurl.up.railway.app/']
 # Application definition
 
 INSTALLED_APPS = [
