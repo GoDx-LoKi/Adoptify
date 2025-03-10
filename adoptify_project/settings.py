@@ -34,7 +34,7 @@ SECRET_KEY = 'django-insecure-7mc(za@_olsymbd5cr76&2$rndq_i+475thv7=v4!2!xtt#es3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['adoptify-i2rs.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['adoptify-i2rs.onrender.com']
 
 # Application definition
 
