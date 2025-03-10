@@ -15,13 +15,13 @@
         <option value="Other" {% if values.pet_type == 'Other' %}selected{% endif %}>Other</option>
       </select>
       <span class="search-text">, preferably a</span>
-      <select name="gender" class="sentence-input form-select d-inline w-auto">
+      <select name="gender" class="sentence-input form-select d-inline w-auto" style="max-width: 250px;">
         <option value="">Select Gender</option>
         <option value="Male" {% if values.gender == 'Male' %}selected{% endif %}>Male</option>
         <option value="Female" {% if values.gender == 'Female' %}selected{% endif %}>Female</option>
       </select>
       <span class="search-text">, around</span>
-      <input type="number" name="age" class="sentence-input form-control d-inline w-auto" placeholder="Age" value="{{ values.age|default_if_none:'' }}">
+      <input type="number" name="age" class="sentence-input form-control d-inline w-auto" placeholder="Age" value="{{ values.age|default_if_none:'' }}" style="max-width: 80px;" >
       <span class="search-text"> years old, of</span>
       <select name="size" class="sentence-input form-select d-inline w-auto">
         <option value="">Select Size</option>
@@ -63,6 +63,18 @@
     {% endfor %}
   </div>
 
+  <nav>
+    <ul class="pagination justify-content-center">
+      {% if pets.has_previous %}
+        <li class="page-item"><a class="page-link" href="?page={{ pets.previous_page_number }}">Previous</a></li>
+      {% endif %}
+      <li class="page-item active"><span class="page-link">Page {{ pets.number }} of {{ pets.paginator.num_pages }}</span></li>
+      {% if pets.has_next %}
+        <li class="page-item"><a class="page-link" href="?page={{ pets.next_page_number }}">Next</a></li>
+      {% endif %}
+    </ul>
+  </nav>
+
   <style>
     .search-sentence {
       color: #e2744c;
@@ -72,6 +84,7 @@
 .sentence-input, .sentence-input option {
     background-color: #333 !important;
     color: #fff !important;
+    max-width: 150px;
     border: 1px solid #555 !important;
 }
 
