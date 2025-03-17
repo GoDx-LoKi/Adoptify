@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-
+<br><br><br>
 <div class="container text-center text-light">
     <h2 style="font-size: 3rem;
-      font-weight: 600;">❤️ Support Our Mission ❤️</h2>
+      font-weight: 600;"> Support Our Mission </h2>
     <p>Your donation helps us rescue and care for abandoned pets. Choose a payment method below.</p>
 
     <!-- Donation Options -->
@@ -14,9 +14,13 @@
             <div class="card donation-card">
                 <div class="card-body">
                     <h5 class="card-title">Donate via UPI</h5>
-                    <img src="{% static 'images/upi-qr.png' %}" alt="UPI QR Code" class="payment-qr">
+                    <img src="https://i.postimg.cc/VLnPBBZ9/Screenshot-2025-03-11-202622.png" alt="UPI QR Code" class="payment-qr">
                     <p class="mt-2">UPI ID: <b>adoptify@upi</b></p>
-                    <button class="btn copy-btn" onclick="copyToClipboard('adoptify@upi')">Copy UPI ID</button>
+                    <button class="btn copy-btn" onclick="copyToClipboard('dev-xpvt@apl')">Copy UPI ID</button>
+                    <a href="upi://pay?pa=dev-xpvt@apl&pn=adoptify&tn=undefined&am=undefined">
+                        <button class="btn copy-btn" >Pay via Phone</button>
+                  </a>
+                  
                 </div>
             </div>
         </div>
@@ -25,10 +29,10 @@
         <div class="col-md-4">
             <div class="card donation-card">
                 <div class="card-body">
-                    <h5 class="card-title">Donate with Crypto</h5>
-                    <img src="{% static 'images/crypto-qr.png' %}" alt="Crypto QR Code" class="payment-qr">
-                    <p class="mt-2">Wallet: <b>0xA1b2C3D4E5F67890</b></p>
-                    <button class="btn copy-btn" onclick="copyToClipboard('0xA1b2C3D4E5F67890')">Copy Wallet</button>
+                    <h5 class="card-title">Donate with BitCoin</h5>
+                    <img src="https://i.postimg.cc/DfQcrSdJ/btc.jpg" alt="Crypto QR Code" class="payment-qr">
+                    <p class="mt-2">Wallet: <b>0x7304d3db42605362b3f5343993c0692e66cd9fc7</b></p>
+                    <button class="btn copy-btn" onclick="copyToClipboard('0x7304d3db42605362b3f5343993c0692e66cd9fc7')">Copy Wallet</button>
                 </div>
             </div>
         </div>
@@ -38,6 +42,7 @@
             <div class="card donation-card">
                 <div class="card-body">
                     <h5 class="card-title">Bank Transfer</h5>
+                    <img src="https://img.icons8.com/external-prettycons-solid-prettycons/60/FFFFFF/external-bank-transfer-business-and-finance-prettycons-solid-prettycons-1.png" alt="Crypto QR Code" class="payment-qr">
                     <p>Account Name: <b>Adoptify Rescue</b></p>
                     <p>Account No: <b>1234567890</b></p>
                     <p>IFSC Code: <b>ABC1234567</b></p>
@@ -48,9 +53,12 @@
     </div>
 </div>
 
+<br><br>
 <!-- Minimalist Styles -->
 <style>
     .donation-card {
+        height: 400px;
+        width: auto;
         background: #222;
         color: #fff;
         border: 1px solid #444;
@@ -76,6 +84,10 @@
     .copy-btn:hover {
         background-color: #ffb74d;
     }
+
+    .container {
+        height: auto;
+        }
 </style>
 
 <!-- JavaScript to Copy Text -->

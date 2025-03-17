@@ -13,8 +13,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 from pathlib import Path
 import os
 import dj_database_url
-
-
+'''
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if os.getenv('DATABASE_URL'):
     DATABASES = {
@@ -28,7 +27,7 @@ else:
         }
     }
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
+'''
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -43,7 +42,7 @@ SECRET_KEY = 'django-insecure-7mc(za@_olsymbd5cr76&2$rndq_i+475thv7=v4!2!xtt#es3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['adoptify-i2rs.onrender.com']
+ALLOWED_HOSTS = ['adoptify-i2rs.onrender.com','localhost' , '127.0.0.1']
 
 # Application definition
 
@@ -60,9 +59,9 @@ INSTALLED_APPS = [
     'pages',
     'inquiries',
 ]
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+'''STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' 'whitenoise.middleware.WhiteNoiseMiddleware','''
 MIDDLEWARE = [
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+   
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -92,12 +91,22 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'adoptify_project.wsgi.application'
-
+'''WSGI_APPLICATION = 'adoptify_project.wsgi.application'
+'''
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'adoptify_db',           # your PostgreSQL database name
+        'USER': 'postgres',           # your PostgreSQL username
+        'PASSWORD': 'root',           # your PostgreSQL password
+        'HOST': 'localhost',          # or the relevant host if different
+        'PORT': '5432',               # default PostgreSQL port
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -117,7 +126,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
+AUTH_USER_MODEL = 'accounts.CustomUser'
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
