@@ -23,7 +23,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link text-white" href="{% url 'become_shelter' %}">Become a Shelter</a>
+          <a class="nav-link text  {% if request.resolver_match.url_name == 'become_shelter' %}active{% endif %}" href="{% url 'become_shelter' %}">Become a Shelter</a>
       </li>
       
         

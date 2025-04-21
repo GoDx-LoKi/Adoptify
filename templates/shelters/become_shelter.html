@@ -1,11 +1,83 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="container my-5 text-light">
-    <h2 class="mb-4 text-center">Apply to Become a Shelter</h2>
-    <form method="post" class="p-4 bg-dark rounded shadow-lg">
+<br><br><br><br>
+<div class="form-container">
+    <h2 class="text-center">Become a Shelter Partner</h2>
+    <form method="POST">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="btn" style="background-color: #f5c242; color: black;">Submit Application</button>
+        {% for field in form %}
+            <div class="input-group">
+                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                {{ field }}
+                {% if field.errors %}
+                    <div class="text-danger small">{{ field.errors }}</div>
+                {% endif %}
+            </div>
+        {% endfor %}
+
+        <button type="submit" class="btn">Submit Application</button>
     </form>
 </div>
+<br><br>
+
+<style>
+  .form-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #181818;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #bbb;
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea {
+    padding: 10px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background: #222;
+    color: #fff;
+    outline: none;
+}
+
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus {
+    border-color: #007bff;
+}
+
+.btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: #ffcc70;
+    color: black;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background: #f89e21;
+}
+</style>
 {% endblock %}
