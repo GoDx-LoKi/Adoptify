@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
-import dj_database_url
+#import dj_database_url
 '''
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if os.getenv('DATABASE_URL'):
@@ -165,3 +165,5 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = "uu3053265@gmail.com"  # Your email
 EMAIL_HOST_PASSWORD = "ioag qelz sfjy gluu"  # Use an app password for security
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER  # Default sender email
+ADMIN_NOTIFICATION_EMAIL = 'nothing-007@outlook.com'
+

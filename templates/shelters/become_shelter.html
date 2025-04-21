@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container my-5 text-light">
+    <h2 class="mb-4 text-center">Apply to Become a Shelter</h2>
+    <form method="post" class="p-4 bg-dark rounded shadow-lg">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn" style="background-color: #f5c242; color: black;">Submit Application</button>
+    </form>
+</div>
+{% endblock %}

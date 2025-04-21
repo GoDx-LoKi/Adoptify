@@ -21,6 +21,11 @@
         <li class="nav-item">
           <a class="nav-link {% if request.resolver_match.url_name == 'donation' %}active{% endif %}" href="{% url 'donation' %}">Donation</a>
         </li>
+
+        <li class="nav-item">
+          <a class="nav-link text-white" href="{% url 'become_shelter' %}">Become a Shelter</a>
+      </li>
+      
         
         {% if user.is_authenticated %}
         <li class="nav-item">

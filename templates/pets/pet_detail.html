@@ -67,6 +67,9 @@
         .pet-thumbnail:hover {
             transform: scale(1.1);
         }
+        strong {
+            color: #ff6b6b;
+        }
     </style>
 
     <!-- JavaScript to Update Main Image -->
@@ -83,18 +86,20 @@
     </script>
 
 <ul class="list-group mt-3">
+    <li class="list-group-item bg-dark text-light"><strong>Description:</strong> {{ pet.description }}</li>
     <li class="list-group-item bg-dark text-light"><strong>Type:</strong> {{ pet.pet_type }}</li>
     <li class="list-group-item bg-dark text-light"><strong>Gender:</strong> {{ pet.gender }}</li>
     <li class="list-group-item bg-dark text-light"><strong>Age:</strong> {{ pet.age }} years</li>
     <li class="list-group-item bg-dark text-light"><strong>Size:</strong> {{ pet.size }}</li>
     <li class="list-group-item bg-dark text-light"><strong>State:</strong> {{ pet.state }}</li>
     <li class="list-group-item bg-dark text-light"><strong>Vaccinated:</strong> {% if pet.vaccinated %}Yes{% else %}No{% endif %}</li>
-    <li class="list-group-item bg-dark text-light"><strong>Description:</strong> {{ pet.description }}</li>
-  </ul>
+    
+    <li class="list-group-item bg-dark text-light"><strong>Listing Date:</strong> {{ pet.list_date }}</li>
+</ul>
 
   <!-- Buttons -->
   <div class="text-center mt-4">
       <a href="{% url 'pets' %}" class="btn btn-outline-light">Back to Pets</a>
       <a href="{% url 'add_inquiry' pet.id %}" class="btn btn-success">Inquire Now</a>
-  </div>
+  </div><br>
 {% endblock %}

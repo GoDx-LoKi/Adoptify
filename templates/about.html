@@ -35,6 +35,80 @@
     <a href="{% url 'pets' %}" class="btn btn-adopt">Find a Pet</a>
   </div>
 </div>
+<section class="faq-section py-5">
+  <div class="container">
+    <h2 class="text-center mb-4" style="color: #f5c242;">Frequently Asked Questions</h2>
+
+    <div class="accordion mx-auto" id="faqAccordion" style="max-width: 800px;">
+      
+      <div class="accordion-item" style="background-color: #2e2e2e; border: none;">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" style="background-color: #1f1f1f; color: #f5c242;" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+            How much does it cost to adopt a pet?
+          </button>
+        </h2>
+        <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Adopting a pet from Adoptify is completely free. Our mission is to connect pets with loving homes, not profit.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item" style="background-color: #2e2e2e; border: none;">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" style="background-color: #1f1f1f; color: #f5c242;" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+            How do I list a pet for adoption?
+          </button>
+        </h2>
+        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            You can list a pet by registering as a shelter and submitting the required information through our dashboard.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item" style="background-color: #2e2e2e; border: none;">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" style="background-color: #1f1f1f; color: #f5c242;" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+            How do you ensure pets are well cared for?
+          </button>
+        </h2>
+        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            We partner only with verified shelters and monitor listings to ensure the well-being of every animal.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item" style="background-color: #2e2e2e; border: none;">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" style="background-color: #1f1f1f; color: #f5c242;" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+            What happens after I submit an adoption request?
+          </button>
+        </h2>
+        <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            The shelter will contact you to review your application and guide you through the next steps.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item" style="background-color: #2e2e2e; border: none;">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" style="background-color: #1f1f1f; color: #f5c242;" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+            Do you support post-adoption help?
+          </button>
+        </h2>
+        <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Yes, we provide resources and support through shelters to ensure a smooth transition for you and your pet.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 
 <!-- Minimalist Styles -->
 <style>
@@ -50,7 +124,7 @@
   .about-subtitle {
     font-size: 1.4rem;
     font-weight: bold;
-    color: #ff9800; /* Orange highlight */
+    color: #ffcc70; /* Orange highlight */
   }
 
   .about-list {
@@ -60,7 +134,7 @@
 
   .about-list li::before {
     content: "•";
-    color: #ff9800;
+    color: #ffcc70;
     font-weight: bold;
     display: inline-block;
     width: 1em;
@@ -68,8 +142,8 @@
   }
 
   .btn-adopt {
-    background: #ff4500;
-    color: white;
+    background: #ffcc70;
+    color: #1f1f1f;
     padding: 10px 18px;
     font-size: 1rem;
     border-radius: 5px;

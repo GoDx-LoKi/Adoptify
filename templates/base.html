@@ -17,7 +17,7 @@
     body {
       
       font-family: 'Poppins', sans-serif;
-      background-color: #121212;
+      background: linear-gradient(120deg, #1f1f1f, #2e2e2e);
       color: #e0e0e0;
     }
     
@@ -38,7 +38,23 @@
       color: #e0e0e0;
       padding: 10px 0;
     }
+
+
+    #custom-cursor {
+    position: fixed;
+    width: 12px;
+    height: 12px;
+    background-color: #f5c242;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    transition: left 0.05s ease-out, top 0.05s ease-out;}
+
+
   </style>
+  
 </head>
 <body>
   {% include 'navbar.html' %}
@@ -54,7 +70,8 @@
     {% endif %}
     {% block content %}{% endblock %}
   </div>
-
+  <div id="custom-cursor"></div>
+  
   <!-- Footer -->
   <footer class="footer text-center py-3">
     <p>&copy; Adoptify {% now "Y" %}</p>
@@ -64,5 +81,33 @@
   <!-- Bootstrap 5 JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="{% static 'js/custom.js' %}"></script>
+  <script>
+    const cursor = document.getElementById('custom-cursor');
+  
+    let mouseX = 0, mouseY = 0;
+    let catX = 0, catY = 0;
+  
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+  
+      // Move the custom cursor
+      cursor.style.left = mouseX - 8 + 'px'; // Half width of cursor
+      cursor.style.top = mouseY - 8 + 'px';
+    });
+  
+    function animateCat() {
+      catX += (mouseX - catX) * 0.1;
+      catY += (mouseY - catY) * 0.1;
+  
+      // Move the cat to follow with delay and offset
+      cat.style.left = catX - 30 + 'px'; // Half width of cat image
+      cat.style.top = catY - 30 + 'px';
+      requestAnimationFrame(animateCat);
+    }
+  
+    animateCat();
+  </script>
+  
 </body>
 </html>
