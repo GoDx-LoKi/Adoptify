@@ -37,12 +37,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-7mc(za@_olsymbd5cr76&2$rndq_i+475thv7=v4!2!xtt#es3'
+SECRET_KEY = ''
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['adoptify-i2rs.onrender.com','localhost' , '127.0.0.1']
+ALLOWED_HOSTS = ['localhost' , '127.0.0.1']
 
 # Application definition
 
@@ -162,8 +162,8 @@ EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"  # Use your email provider
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = "uu3053265@gmail.com"  # Your email
-EMAIL_HOST_PASSWORD = "ioag qelz sfjy gluu"  # Use an app password for security
+EMAIL_HOST_USER = ""  # Your email
+EMAIL_HOST_PASSWORD = ""  # Use an app password for security
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER  # Default sender email
-ADMIN_NOTIFICATION_EMAIL = 'nothing-007@outlook.com'
+ADMIN_NOTIFICATION_EMAIL = '' #your admin email
 
