@@ -18,6 +18,8 @@ urlpatterns = [
     path('inquiries/', include('inquiries.urls')),
     path('about/', TemplateView.as_view(template_name='about.html'), name='about'),
     path('donation/', TemplateView.as_view(template_name='donation.html'), name='donation'),
+    path('shelters/', include('shelters.urls')),
+
 ]
 
 if settings.DEBUG:

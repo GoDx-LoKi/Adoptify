@@ -1,11 +1,167 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="row">
-  <div class="col-md-12">
-    <h2 class="animate__animated animate__fadeInDown">About Us</h2>
-    <p class="animate__animated animate__fadeInUp">
-      Adoptify is dedicated to connecting loving homes with pets in need...
-    </p>
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<br><br><br><br>
+<div class="container about-section">
+  <h1 class="text-center" style="font-size: 3rem;
+      font-weight: 600;">About Us</h1>
+  <p class="text-center">
+    Adoptify is dedicated to connecting loving homes with pets in need. We believe every pet deserves a second chance and a family that cares.
+  </p>
+
+  <div class="row mt-4">
+    <!-- Left Section -->
+    <div class="col-md-6">
+      <h3 class="about-subtitle">🐾 Our Mission</h3>
+      <p>
+        Our goal is to reduce pet homelessness by providing a platform that makes adoption easy, transparent, and joyful.  
+      </p>
+    </div>
+
+    <!-- Right Section -->
+    <div class="col-md-6">
+      <h3 class="about-subtitle">❤️ Why Choose Adoptify?</h3>
+      <ul class="about-list">
+        <li>Trusted and verified pet listings</li>
+        <li>Simple and quick adoption process</li>
+        <li>A community that cares about animal welfare</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="text-center mt-4">
+    <a href="{% url 'pets' %}" class="btn btn-adopt">Find a Pet</a>
   </div>
 </div>
+<section class="faq-section py-5">
+  <div class="container">
+    <h2 class="text-center mb-4" style="color: #f5c242;">Frequently Asked Questions</h2>
+
+    <div class="accordion mx-auto" id="faqAccordion" style="max-width: 800px;">
+      
+      <div class="accordion-item" style="background-color: #2e2e2e; border: none;">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" style="background-color: #1f1f1f; color: #f5c242;" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+            How much does it cost to adopt a pet?
+          </button>
+        </h2>
+        <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Adopting a pet from Adoptify is completely free. Our mission is to connect pets with loving homes, not profit.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item" style="background-color: #2e2e2e; border: none;">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" style="background-color: #1f1f1f; color: #f5c242;" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+            How do I list a pet for adoption?
+          </button>
+        </h2>
+        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            You can list a pet by registering as a shelter and submitting the required information through our dashboard.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item" style="background-color: #2e2e2e; border: none;">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" style="background-color: #1f1f1f; color: #f5c242;" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+            How do you ensure pets are well cared for?
+          </button>
+        </h2>
+        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            We partner only with verified shelters and monitor listings to ensure the well-being of every animal.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item" style="background-color: #2e2e2e; border: none;">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" style="background-color: #1f1f1f; color: #f5c242;" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+            What happens after I submit an adoption request?
+          </button>
+        </h2>
+        <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            The shelter will contact you to review your application and guide you through the next steps.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item" style="background-color: #2e2e2e; border: none;">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" style="background-color: #1f1f1f; color: #f5c242;" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+            Do you support post-adoption help?
+          </button>
+        </h2>
+        <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Yes, we provide resources and support through shelters to ensure a smooth transition for you and your pet.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Minimalist Styles -->
+<style>
+  .about-section {
+    height: 550px;
+    max-width: 900px;
+    margin: auto;
+    padding: 40px;
+    color: #ddd;
+    border-radius: 10px;
+  }
+
+  .about-subtitle {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #ffcc70; /* Orange highlight */
+  }
+
+  .about-list {
+    padding-left: 20px;
+    list-style-type: none;
+  }
+
+  .about-list li::before {
+    content: "•";
+    color: #ffcc70;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+  }
+
+  .btn-adopt {
+    background: #ffcc70;
+    color: #1f1f1f;
+    padding: 10px 18px;
+    font-size: 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: 0.3s;
+  }
+
+  .btn-adopt:hover {
+    background: #ff9800;
+  }
+
+  .container {
+  
+      position: relative;
+      
+      align-items: center;
+      justify-content: center;
+     
+  }
+</style>
 {% endblock %}

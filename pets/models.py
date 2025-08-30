@@ -6,7 +6,7 @@ from shelters.models import Shelter  # Adjust as needed
 from .choices import STATES
 
 class Pet(models.Model):
-    shelter = models.ForeignKey(Shelter, on_delete=models.DO_NOTHING)
+    shelter = models.ForeignKey(Shelter, on_delete=models.DO_NOTHING, null=True, blank=True)
     name = models.CharField(max_length=200)
     pet_type = models.CharField(max_length=100, choices=[
         ('Dog', 'Dog'),
